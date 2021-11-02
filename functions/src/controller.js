@@ -6,8 +6,8 @@ const getByLot = async (req, res) => {
 	    res.json({status: 200, data, message: "data success"})
     } catch (error) {
         const myError = {
-            request: JSON.stringify(err.stack.split("\n").slice(1, 4)),
-            message: err.message,
+            request: JSON.stringify(error.stack.split("\n").slice(1, 4)),
+            message: error.message,
             type: "error",
           };
         res.status(400);
