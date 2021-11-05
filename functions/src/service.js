@@ -10,8 +10,8 @@ const getUrl = async (lot) => {
 	const page = await browser.newPage();
 	const data = await page.goto(`https://www.autobidmaster.com/en/carfinder-online-auto-auctions/lot/${lot}`);
 	await browser.close();
-	return data._url
-}
+	return data._url;
+};
 
 const getBody = async (lot) => {
 	const url = await getUrl(lot);
@@ -19,7 +19,7 @@ const getBody = async (lot) => {
 		const page = await browser.newPage();
 		await page.goto(url);
 		
-		var html = await page.content()
+		var html = await page.content();
 		let $ = cheerio.load(html);
 		const body = $('#lot-view-page');
 		const childrenBody = $(body.children()[0]).children();
@@ -40,7 +40,7 @@ const getBody = async (lot) => {
 		});
 		const realData = vinData.map(i => {
 			const [key, value] = i.split(':');
-			return {key, value}
+			return {key, value};
 		});
 		
 	await browser.close();
