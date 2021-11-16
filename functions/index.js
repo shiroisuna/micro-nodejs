@@ -6,7 +6,7 @@ const app = express();
 app.use('/api', router);
 
 const runtimeOpts = {
-  timeoutSeconds: 3600,
+  timeoutSeconds: 500,
   memory: '1GB',
 };
 
