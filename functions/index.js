@@ -6,8 +6,8 @@ const app = express();
 app.use('/api', router);
 
 const runtimeOpts = {
-  timeoutSeconds: 3600,
-  memory: '1GB',
+  timeoutSeconds: 300,
+  memory: '512MB',
 };
 
 exports.app = functions.runWith(runtimeOpts).https.onRequest(app);
